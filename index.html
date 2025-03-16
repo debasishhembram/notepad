@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DX Notepad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Developer Console Modal -->
+    <div id="devConsoleModal" class="modal">
+        <div class="modal-content dev-console">
+            <div class="dev-header">
+                <h2 class="dev-title">Developer Console</h2>
+                <button id="closeDevConsole" class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="dev-info">
+                <div class="dev-profile">
+                    <img id="devAvatar" src="https://www.gravatar.com/avatar/default?s=150" alt="Developer Avatar" class="dev-avatar">
+                    <div class="dev-details">
+                        <h3 id="devName">Developer Name</h3>
+                        <p id="devRole">Role: Full Stack Developer</p>
+                        <p id="devStatus">Status: Active</p>
+                    </div>
+                </div>
+                <div class="dev-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Notes Created</span>
+                        <span id="notesCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Last Active</span>
+                        <span id="lastActive" class="stat-value">Now</span>
+                    </div>
+                </div>
+                <div class="dev-actions">
+                    <button id="editDevProfile" class="dev-btn"><i class="fas fa-edit"></i> Edit Profile</button>
+                    <button id="toggleDevMode" class="dev-btn"><i class="fas fa-code"></i> Developer Mode</button>
+                    <button id="exportData" class="dev-btn"><i class="fas fa-download"></i> Export Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h2 class="auth-title">Welcome to DX Notepad</h2>
+                    <p class="auth-subtitle">Secure your notes with an account</p>
+                </div>
+                
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form">
+                    <div class="form-group">
+                        <input type="email" id="loginEmail" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-button">Login</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="auth-form" style="display: none;">
+                    <div class="form-group">
+                        <input type="text" id="signupUsername" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="signupEmail" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="signupPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="auth-button">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <h1 class="dx-logo">DX Notepad</h1>
+                <div class="shine"></div>
+            </div>
+            <div class="controls">
+                <div class="user-info" style="display: none;">
+                    <span id="userEmail"></span>
+                    <button id="devConsoleBtn" title="Developer Console"><i class="fas fa-terminal"></i></button>
+                    <button id="logoutBtn" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+                <button id="darkModeBtn" title="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+                <button id="newNoteBtn" title="New Note"><i class="fas fa-plus"></i> New Note</button>
+                <button id="saveBtn" title="Save Note"><i class="fas fa-save"></i> Save</button>
+            </div>
+        </header>
+
+        <main>
+            <div class="editor-section">
+                <textarea id="mainNotepad" placeholder="Start typing your note here..."></textarea>
+                <button id="addToListBtn"><i class="fas fa-arrow-down"></i> Add to List</button>
+            </div>
+
+            <div class="saved-notes-section">
+                <h2>Saved Lines</h2>
+                <div id="savedLinesList" class="saved-lines-list">
+                    <!-- Lines will be added here dynamically -->
+                </div>
+            </div>
+        </main>
+
+        <div id="savedNotesPanel" class="saved-notes-panel">
+            <h3>Saved Notes</h3>
+            <div id="savedNotesList" class="saved-notes-list">
+                <!-- Saved notes will be listed here -->
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
